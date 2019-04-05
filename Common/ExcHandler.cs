@@ -6,6 +6,7 @@ namespace Common
 	{
 		public static void Catch(Exception ex)
 		{
+			UIHelper.ShowError(ex.ToString());
 		}
 	}
 }

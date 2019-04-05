@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading;
+using System.Windows.Forms;
 
 namespace Common
 {
@@ -87,6 +88,17 @@ namespace Common
 			{
 				return Form.ActiveForm ?? MainForm;
 			}
+		}
+
+		public static void SetUnhandledExceptionSafe()
+		{
+			Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+			Application.ThreadException += ApplicationOnThreadException;
+		}
+
+		private static void ApplicationOnThreadException(object sender, ThreadExceptionEventArgs args)
+		{
+			ExcHandler.Catch(args.Exception);
 		}
 	}
 }

@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\XwTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\ArrayExtension.cs" />
     <Compile Include="Extensions\CollectionExtension.cs" />
     <Compile Include="Extensions\ControlExtension.cs" />

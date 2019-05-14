@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Common
 {
@@ -9,6 +10,13 @@ namespace Common
 		/// </summary>
 		public static bool IsSameProcessExists()
 		{
+			List<Process> processes = GetSameProcesses();
+			return processes.Count > 0;
+		}
+
+		public static List<Process> GetSameProcesses()
+		{
+			List<Process> result = new List<Process>();
 			Process currentProcess = Process.GetCurrentProcess();
 			foreach (Process process in Process.GetProcessesByName(currentProcess.ProcessName))
 			{
@@ -17,10 +25,10 @@ namespace Common
 				    && currentProcess.MainModule != null
 				    && process.MainModule.FileName == currentProcess.MainModule.FileName)
 				{
-					return true;
+					result.Add(process);
 				}
 			}
-			return false;
+			return result;
 		}
 	}
 }

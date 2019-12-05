@@ -2,3 +2,4 @@ _ReSharper.Caches/
 .hg/
 .vs/
 Common/obj/*
+.hgignore

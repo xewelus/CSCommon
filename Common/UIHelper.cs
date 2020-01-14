@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Common
@@ -30,6 +31,11 @@ namespace Common
 		public static void ShowError(string text, string caption = "Ошибка")
 		{
 			ShowError(null, text, caption);
+		}
+
+		public static void ShowError(Exception exception, string caption = "Ошибка")
+		{
+			ShowError(null, exception.ToString(), caption);
 		}
 
 		public static void ShowWarning(string text, string caption = "Внимание")

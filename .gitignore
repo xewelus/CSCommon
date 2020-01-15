@@ -4,3 +4,4 @@ _ReSharper.Caches/
 Common/obj/*
 .hgignore
 Common/bin/Debug/
+Common/bin/Release/

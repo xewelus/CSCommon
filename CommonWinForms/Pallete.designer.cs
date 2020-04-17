@@ -65,7 +65,7 @@ namespace CommonWinForms
 			this.btnSelectNone = new System.Windows.Forms.ToolStripButton();
 			this.btnSearch = new System.Windows.Forms.Button();
 			this.btnPrint = new System.Windows.Forms.Button();
-			this.btnOk = new System.Windows.Forms.Button();
+			this.btnOk = new DialogButtonOK();
 			this.btnStop = new System.Windows.Forms.Button();
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
@@ -73,8 +73,8 @@ namespace CommonWinForms
 			this.tbMultitext = new System.Windows.Forms.TextBox();
 			this.splitContainer3 = new System.Windows.Forms.SplitContainer();
 			this.line = new CommonWinForms.Controls.Line();
-			this.wideLine1 = new CommonWinForms.Controls.WideLine();
-			this.numBox1 = new CommonWinForms.Controls.NumBox();
+			this.wideLine = new CommonWinForms.Controls.WideLine();
+			this.numBox = new CommonWinForms.Controls.NumBox();
 			this.dtpProtocolDate = new CommonWinForms.Controls.DateBox();
 			this.zOrder = new CommonWinForms.Controls.ZOrder(this.components);
 			this.adaptiveWidth = new CommonWinForms.Components.AdaptiveWidth(this.components);
@@ -104,7 +104,7 @@ namespace CommonWinForms
 			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCancel.Location = new System.Drawing.Point(302, 26);
+			this.btnCancel.Location = new System.Drawing.Point(327, 8);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(110, 25);
 			this.btnCancel.TabIndex = 31;
@@ -402,9 +402,8 @@ namespace CommonWinForms
 			this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btnOk.Enabled = false;
-			this.btnOk.Image = global::CommonWinForms.Properties.Resources.ok;
 			this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnOk.Location = new System.Drawing.Point(184, 26);
+			this.btnOk.Location = new System.Drawing.Point(209, 8);
 			this.btnOk.Name = "btnOk";
 			this.btnOk.Size = new System.Drawing.Size(110, 25);
 			this.btnOk.TabIndex = 30;
@@ -477,31 +476,31 @@ namespace CommonWinForms
 			// 
 			// wideLine1
 			// 
-			this.wideLine1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			this.wideLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.wideLine1.Location = new System.Drawing.Point(3, 16);
-			this.wideLine1.Name = "wideLine1";
-			this.wideLine1.Size = new System.Drawing.Size(433, 4);
-			this.wideLine1.TabIndex = 28;
+			this.wideLine.Location = new System.Drawing.Point(5, 0);
+			this.wideLine.Name = "wideLine";
+			this.wideLine.Size = new System.Drawing.Size(433, 4);
+			this.wideLine.TabIndex = 28;
 			// 
 			// numBox1
 			// 
-			this.numBox1.BackColor = System.Drawing.SystemColors.Window;
-			this.numBox1.Location = new System.Drawing.Point(137, 4);
-			this.numBox1.MaxValue = new decimal(new int[] {
+			this.numBox.BackColor = System.Drawing.SystemColors.Window;
+			this.numBox.Location = new System.Drawing.Point(137, 4);
+			this.numBox.MaxValue = new decimal(new int[] {
             100,
             0,
             0,
             0});
-			this.numBox1.MinValue = new decimal(new int[] {
+			this.numBox.MinValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-			this.numBox1.Name = "numBox1";
-			this.numBox1.Size = new System.Drawing.Size(100, 20);
-			this.numBox1.TabIndex = 24;
-			this.numBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.numBox.Name = "numBox";
+			this.numBox.Size = new System.Drawing.Size(100, 20);
+			this.numBox.TabIndex = 24;
+			this.numBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// dtpProtocolDate
 			// 
@@ -522,11 +521,11 @@ namespace CommonWinForms
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.btnCancel);
-			this.panel4.Controls.Add(this.wideLine1);
+			this.panel4.Controls.Add(this.wideLine);
 			this.panel4.Controls.Add(this.btnOk);
-			this.panel4.Location = new System.Drawing.Point(137, 583);
+			this.panel4.Location = new System.Drawing.Point(137, 589);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(442, 63);
+			this.panel4.Size = new System.Drawing.Size(442, 40);
 			this.panel4.TabIndex = 95;
 			// 
 			// panel5
@@ -600,7 +599,7 @@ namespace CommonWinForms
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.numBox1);
+			this.Controls.Add(this.numBox);
 			this.Controls.Add(this.dtpProtocolDate);
 			this.Name = "Pallete";
 			this.Size = new System.Drawing.Size(701, 656);
@@ -628,9 +627,9 @@ namespace CommonWinForms
 
 		#endregion
 
-		private NumBox numBox1;
-		private WideLine wideLine1;
-		private System.Windows.Forms.Button btnOk;
+		private NumBox numBox;
+		private WideLine wideLine;
+		private DialogButtonOK btnOk;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;

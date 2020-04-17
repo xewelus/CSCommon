@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Common.Controls
+namespace CommonWinForms.Controls
 {
 	public class XwTrackBar : TrackBar
 	{

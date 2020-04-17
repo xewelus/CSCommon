@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Common;
 
-namespace Common
+namespace CommonWinForms.Extensions
 {
 	public static class ListViewExtension
 	{

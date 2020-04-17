@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Common;
 
-namespace Common
+namespace CommonWinForms.Extensions
 {
 	public static class ControlExtension
 	{

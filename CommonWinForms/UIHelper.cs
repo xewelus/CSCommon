@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Common
+namespace CommonWinForms
 {
 	public static class UIHelper
 	{

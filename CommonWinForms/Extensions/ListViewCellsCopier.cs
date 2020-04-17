@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Common
+namespace CommonWinForms.Extensions
 {
 	public class ListViewCellsCopier
 	{

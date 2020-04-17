@@ -1,7 +1,11 @@
 _ReSharper.Caches/
 .hg/
 .vs/
-Common/obj/*
 .hgignore
-Common/bin/Debug/
-Common/bin/Release/
+code/Backup/
+code/UpgradeLog.htm
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
+_ReSharper.Caches/

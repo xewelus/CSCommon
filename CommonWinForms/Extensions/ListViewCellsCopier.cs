@@ -11,33 +11,47 @@ namespace CommonWinForms.Extensions
 	{
 		private bool applied;
 		private readonly ListView listView;
-		private readonly ContextMenuStrip menu = new ContextMenuStrip();
+		private readonly ContextMenuStrip menu;
 		private readonly ToolStripItem copyCellItem = new ToolStripMenuItem("Копировать значение ячейки");
 		private readonly ToolStripItem copyRowsItem = new ToolStripMenuItem("Копировать выделенные строки");
 		private readonly ToolStripItem copyAllItem = new ToolStripMenuItem("Копировать все строки");
 		private string cursorText;
 
-		public ListViewCellsCopier(ListView listView)
+		public ListViewCellsCopier(ListView listView, ContextMenuStrip menu = null)
 		{
 			this.listView = listView;
+			this.menu = menu ?? listView.ContextMenuStrip ?? new ContextMenuStrip();
 		}
 
-		public void Apply()
+		public void Apply(ToolStripItem after = null)
 		{
 			if (this.applied) return;
 
 			this.menu.Opening += this.MenuOnOpening;
 
+			int index = -1;
+			if (after != null)
+			{
+				index = this.menu.Items.IndexOf(after);
+			}
+			if (index == -1)
+			{
+				index = this.menu.Items.Count;
+			}
+
 			this.copyCellItem.Click += this.CopyCellItemOnClick;
-			this.menu.Items.Add(this.copyCellItem);
+			this.menu.Items.Insert(index++, this.copyCellItem);
 
 			this.copyRowsItem.Click += this.CopyRowsItemOnClick;
-			this.menu.Items.Add(this.copyRowsItem);
+			this.menu.Items.Insert(index++, this.copyRowsItem);
 
 			this.copyAllItem.Click += this.CopyAllItemOnClick;
-			this.menu.Items.Add(this.copyAllItem);
+			this.menu.Items.Insert(index, this.copyAllItem);
 
-			this.listView.ContextMenuStrip = this.menu;
+			if (this.listView.ContextMenuStrip != this.menu)
+			{
+				this.listView.ContextMenuStrip = this.menu;
+			}
 
 			this.applied = true;
 		}

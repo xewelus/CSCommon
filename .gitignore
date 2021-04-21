@@ -8,4 +8,4 @@ code/UpgradeLog.htm
 */**/bin/Release
 */**/obj/Debug
 */**/obj/Release
-_ReSharper.Caches/
+*.csproj.user

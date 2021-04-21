@@ -1,6 +1,6 @@
 using System;
 using System.Text;
-using Common.Unsorted;
+using Common.Classes;
 
 namespace Common.Randomizer
 {

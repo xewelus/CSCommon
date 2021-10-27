@@ -94,6 +94,10 @@
     <Compile Include="Extensions\ControlExtension.cs" />
     <Compile Include="Extensions\ListViewCellsCopier.cs" />
     <Compile Include="Extensions\ListViewExtension.cs" />
+    <Compile Include="Forms\ShowTextDlg.cs" />
+    <Compile Include="Forms\ShowTextDlg.designer.cs">
+      <DependentUpon>ShowTextDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pallete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\WideLine.resx">
       <DependentUpon>WideLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowTextDlg.resx">
+      <DependentUpon>ShowTextDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pallete.resx">
       <DependentUpon>Pallete.cs</DependentUpon>
@@ -181,6 +188,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\btnRemove.Image.png" />
+    <Content Include="Resources\clipboard-text.png" />
+    <Content Include="Resources\style_go.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

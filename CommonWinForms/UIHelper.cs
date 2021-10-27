@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using CommonWinForms.Forms;
 
 namespace CommonWinForms
 {
@@ -35,7 +36,18 @@ namespace CommonWinForms
 
 		public static void ShowError(Exception exception, string caption = "Ошибка")
 		{
-			ShowError(null, exception.ToString(), caption);
+			try
+			{
+				string text = exception.ToString();
+
+				text = text.Replace(" ---> ", "\r\n\r\n ---> ");
+				text = text.Replace("--- End of inner exception stack trace ---", "\r\n--- End of inner exception stack trace ---");
+				ShowTextDlg.ShowText(caption, text);
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show(e.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		public static void ShowWarning(string text, string caption = "Внимание")

@@ -60,6 +60,12 @@
     <Compile Include="Controls\DialogButtonOK.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\FolderBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FolderBox.Designer.cs">
+      <DependentUpon>FolderBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Line.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DbcDateBox3Form.resx">
       <DependentUpon>DbcDateBox3Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FolderBox.resx">
+      <DependentUpon>FolderBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Line.resx">
       <DependentUpon>Line.cs</DependentUpon>
@@ -192,6 +201,7 @@
   <ItemGroup>
     <Content Include="Resources\btnRemove.Image.png" />
     <Content Include="Resources\clipboard-text.png" />
+    <None Include="Resources\folder.gif" />
     <Content Include="Resources\style_go.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

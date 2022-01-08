@@ -65,7 +65,7 @@ namespace CommonWinForms
 			this.btnSelectNone = new System.Windows.Forms.ToolStripButton();
 			this.btnSearch = new System.Windows.Forms.Button();
 			this.btnPrint = new System.Windows.Forms.Button();
-			this.btnOk = new DialogButtonOK();
+			this.btnOk = new CommonWinForms.Controls.DialogButtonOK();
 			this.btnStop = new System.Windows.Forms.Button();
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
@@ -84,6 +84,7 @@ namespace CommonWinForms
 			this.panel6 = new System.Windows.Forms.Panel();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.folderBox1 = new CommonWinForms.Controls.FolderBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -474,7 +475,7 @@ namespace CommonWinForms
 			this.line.Size = new System.Drawing.Size(537, 2);
 			this.line.TabIndex = 85;
 			// 
-			// wideLine1
+			// wideLine
 			// 
 			this.wideLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -483,7 +484,7 @@ namespace CommonWinForms
 			this.wideLine.Size = new System.Drawing.Size(433, 4);
 			this.wideLine.TabIndex = 28;
 			// 
-			// numBox1
+			// numBox
 			// 
 			this.numBox.BackColor = System.Drawing.SystemColors.Window;
 			this.numBox.Location = new System.Drawing.Point(137, 4);
@@ -567,10 +568,18 @@ namespace CommonWinForms
 			// 
 			this.columnHeader2.Text = "1";
 			// 
+			// folderBox1
+			// 
+			this.folderBox1.Location = new System.Drawing.Point(296, 377);
+			this.folderBox1.Name = "folderBox1";
+			this.folderBox1.Size = new System.Drawing.Size(300, 22);
+			this.folderBox1.TabIndex = 99;
+			// 
 			// Pallete
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.folderBox1);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.panel6);
 			this.Controls.Add(this.panel5);
@@ -679,5 +688,6 @@ namespace CommonWinForms
 		private System.Windows.Forms.Panel panel6;
 		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
+		private FolderBox folderBox1;
 	}
 }

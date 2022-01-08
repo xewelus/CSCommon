@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -112,6 +113,16 @@ namespace Common
 				}
 			}
 			return Path.GetFullPath(path);
+		}
+
+		/// <summary>
+		/// Opens file or folder in Windows default app.
+		/// </summary>
+		public static void OpenInDefaultApp(string path)
+		{
+			ProcessStartInfo startInfo = new ProcessStartInfo($"\"{path}\"");
+			startInfo.Verb = "open";
+			Process.Start(startInfo);
 		}
 	}
 }

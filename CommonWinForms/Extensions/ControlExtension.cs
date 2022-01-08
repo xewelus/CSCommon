@@ -71,6 +71,12 @@ namespace CommonWinForms.Extensions
 			return result;
 		}
 
+		// ReSharper disable once UnusedParameter.Global
+		public static bool InRuntime(this Control control)
+		{
+			return UIHelper.InRuntime;
+		}
+
 		/// <summary>
 		/// Использовать с конструкцией "using". Вызывает BeginUpdate() а при диспозе EndUpdate().
 		/// </summary>

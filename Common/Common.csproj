@@ -47,6 +47,7 @@
     <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Extensions\DecimalExtension.cs" />
     <Compile Include="Extensions\DictionaryExtension.cs" />
+    <Compile Include="Extensions\DirectoryInfoExtension.cs" />
     <Compile Include="Extensions\EnumerableExtension.cs" />
     <Compile Include="Extensions\GenericExtension.cs" />
     <Compile Include="Extensions\ListExtension.cs" />

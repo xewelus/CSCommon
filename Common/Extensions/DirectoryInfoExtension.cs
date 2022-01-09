@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 
@@ -79,6 +80,47 @@ namespace Common.Extensions
 			}
 
 			return false;
+		}
+
+		public static void Recursive(this DirectoryInfo info, Action<(string path, bool isFile)> action)
+		{
+			foreach (DirectoryInfo dir in info.GetDirectories())
+			{
+				try
+				{
+					action((dir.FullName, false));
+					dir.Recursive(action);
+				}
+				catch (Exception ex)
+				{
+					throw new Exception($"Error while processing folder '{dir.FullName}'.", ex);
+				}
+			}
+
+			foreach (FileInfo file in info.GetFiles())
+			{
+				try
+				{
+					action((file.FullName, true));
+				}
+				catch (Exception ex)
+				{
+					throw new Exception($"Error while processing file '{file.FullName}'.", ex);
+				}
+			}
+		}
+
+		public static void RecursiveProcessFiles(this DirectoryInfo info, Action<string> action)
+		{
+			Recursive(
+				info: info,
+				action: t =>
+				        {
+					        if (t.isFile)
+					        {
+						        action.Invoke(t.path);
+					        }
+				        });
 		}
 	}
 }

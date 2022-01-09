@@ -52,6 +52,22 @@ namespace Common
 				keyMethod: keyMethod, 
 				updateMethod: updateMethod);
 		}
+
+		public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action, Func<T, string> nameFunc = null)
+		{
+			foreach (T obj in enumerable)
+			{
+				try
+				{
+					action.Invoke(obj);
+				}
+				catch (Exception ex)
+				{
+					string name = nameFunc == null ? obj?.ToString() : nameFunc.Invoke(obj);
+					throw new Exception($"Ошибка при обработке '{name}'.", ex);
+				}
+			}
+		}
 	}
 
 	public class Group<TKey, TItem> : List<TItem>

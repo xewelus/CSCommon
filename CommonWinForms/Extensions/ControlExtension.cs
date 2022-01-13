@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Common;
 
@@ -85,6 +86,11 @@ namespace CommonWinForms.Extensions
 		public static SuspendingObject Suspending(this Control control)
 		{
 			return new SuspendingObject(control);
+		}
+
+		public static void BeginInvoke(this Control control, Action action)
+		{
+			control.BeginInvoke(action);
 		}
 
 		public class SuspendingObject : IDisposable

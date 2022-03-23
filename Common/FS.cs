@@ -93,7 +93,7 @@ namespace Common
 			}
 		}
 
-		public static string GetAppFolder(string path, bool trim = false)
+		public static string GetAppPath(string path, bool trim = false)
 		{
 			if (!Path.IsPathRooted(path))
 			{

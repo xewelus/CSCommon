@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
+using Common.Extensions;
 using CommonWpf.Forms;
 
 namespace CommonWpf
@@ -39,10 +40,7 @@ namespace CommonWpf
 		{
 			try
 			{
-				string text = exception.ToString();
-
-				text = text.Replace(" ---> ", "\r\n\r\n ---> ");
-				text = text.Replace("--- End of inner exception stack trace ---", "\r\n--- End of inner exception stack trace ---");
+				string text = exception.ToNiceString();
 				ShowTextDlg.ShowText(caption, text);
 			}
 			catch (Exception e)

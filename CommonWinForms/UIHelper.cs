@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using Common.Extensions;
 using CommonWinForms.Forms;
 
 namespace CommonWinForms
@@ -39,10 +40,7 @@ namespace CommonWinForms
 		{
 			try
 			{
-				string text = exception.ToString();
-
-				text = text.Replace(" ---> ", "\r\n\r\n ---> ");
-				text = text.Replace("--- End of inner exception stack trace ---", "\r\n--- End of inner exception stack trace ---");
+				string text = exception.ToNiceString();
 				ShowTextDlg.ShowText(caption, text);
 			}
 			catch (Exception e)

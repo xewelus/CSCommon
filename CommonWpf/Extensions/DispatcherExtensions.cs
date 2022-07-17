@@ -13,7 +13,10 @@ namespace CommonWpf.Extensions
 			}
 			else
 			{
-				dispatcher.Invoke(action);
+				if (!dispatcher.HasShutdownStarted && !dispatcher.HasShutdownFinished)
+				{
+					dispatcher.Invoke(action);
+				}
 			}
 		}
 	}

@@ -8,4 +8,9 @@ code/UpgradeLog.htm
 */**/bin/Release
 */**/obj/Debug
 */**/obj/Release
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+*/**/obj/project.assets.json
+*/**/obj/project.nuget.cache
 *.csproj.user

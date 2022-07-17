@@ -75,7 +75,7 @@ namespace CommonWpf
 
 		public static Window GetCurrentForm(this Control control)
 		{
-			return Window.GetWindow(control);
+			return Window.GetWindow(control ?? TopForm);
 		}
 
 		public static MessageBoxResult ShowMessageBox(

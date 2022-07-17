@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Classes\UI\ExceptionHandler.cs" />
     <Compile Include="Classes\UI\IconHelper.cs" />
+    <Compile Include="Extensions\DispatcherExtensions.cs" />
     <Compile Include="Forms\ShowTextDlg.xaml.cs">
       <DependentUpon>ShowTextDlg.xaml</DependentUpon>
     </Compile>

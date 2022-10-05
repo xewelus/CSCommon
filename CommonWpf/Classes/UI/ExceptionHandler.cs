@@ -14,20 +14,41 @@ namespace CommonWpf.Classes.UI
 			TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 		}
 
+		public static void Catch(Exception ex)
+		{
+			if (ex == null)
+			{
+				UIHelper.ShowError($"Empty error:\r\n{Environment.StackTrace}");
+				return;
+			}
+			UIHelper.ShowError(ex);
+		}
+
 		private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
 		{
-			UIHelper.ShowError(e.Exception);
+			Catch(e.Exception);
 			e.SetObserved();
 		}
 
 		private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
 		{
-			UIHelper.ShowError(e.ExceptionObject as Exception);
+			if (e.ExceptionObject == null)
+			{
+				Catch(null);
+			}
+			else if (e.ExceptionObject is Exception exception)
+			{
+				Catch(exception);
+			}
+			else
+			{
+				UIHelper.ShowError(e.ExceptionObject?.ToString());
+			}
 		}
 
 		private static void CurrentOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
-			UIHelper.ShowError(e.Exception);
+			Catch(e.Exception);
 			e.Handled = true;
 		}
 	}

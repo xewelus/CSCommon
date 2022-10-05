@@ -8,7 +8,7 @@
              d:DesignHeight="22" d:DesignWidth="200"
              d:DataContext="{d:DesignInstance controls:FolderBox, IsDesignTimeCreatable=True}">
     <DockPanel>
-		<Button DockPanel.Dock="Right" Margin="1,0,0,0" Background="{Binding ButtonBackground}" Width="22">
+		<Button DockPanel.Dock="Right" Margin="1,0,0,0" Background="{Binding ButtonBackground}" Width="22" Click="Button_OnClick">
 			<Image Width="15">
 				<Image.Source>
 					<DrawingImage>

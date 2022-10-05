@@ -1,6 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Media;
+using CommonWpf.Classes.UI;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace CommonWpf.Controls
 {
@@ -48,6 +51,25 @@ namespace CommonWpf.Controls
 			set
 			{
 				this.SetValue(ButtonBackgroundProperty, value);
+			}
+		}
+
+		private void Button_OnClick(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+				{
+					dlg.SelectedPath = this.Text;
+					if (dlg.ShowDialog() == DialogResult.OK)
+					{
+						this.Text = dlg.SelectedPath;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ExceptionHandler.Catch(ex);
 			}
 		}
 	}

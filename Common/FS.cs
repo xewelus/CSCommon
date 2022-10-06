@@ -93,26 +93,107 @@ namespace Common
 			}
 		}
 
-		public static string GetAppPath(string path, bool trim = false)
+		private static string projectFolder;
+		public static string ProjectFolder
 		{
+			get
+			{
+				if (projectFolder == null)
+				{
+					string folder = AppFolder;
+					if (Debugger.IsAttached)
+					{
+						while (true)
+						{
+							if (Directory.GetFiles(folder, "*.csproj").Any())
+							{
+								break;
+							}
+							string parent = Path.GetDirectoryName(folder);
+							if (folder == parent)
+							{
+								folder = AppFolder;
+								break;
+							}
+
+							folder = parent;
+
+							if (string.IsNullOrEmpty(folder))
+							{
+								folder = AppFolder;
+								break;
+							}
+						}
+					}
+					projectFolder = folder;
+				}
+				return projectFolder;
+			}
+		}
+
+		public static string GetAppPath(params string[] paths)
+		{
+			return GetPath(AppFolder, paths);
+		}
+
+		public static string GetProjectPath(params string[] paths)
+		{
+			return GetPath(ProjectFolder, paths);
+		}
+
+		public static string GetPath(string folder, params string[] paths)
+		{
+			string path = Path.Combine(paths);
 			if (!Path.IsPathRooted(path))
 			{
 				if (string.IsNullOrEmpty(path))
 				{
-					path = AppFolder;
+					path = folder;
 				}
 				else
 				{
-					if (trim)
-					{
-						path = path.Trim();
-					}
-
 					// если путь задан как отностильный, то помещаем файл в папку сервиса
-					path = Path.Combine(AppFolder, path);
+					path = Path.Combine(folder, path);
 				}
 			}
 			return Path.GetFullPath(path);
+		}
+
+		/// <summary>
+		/// Check folder existing. Creates if need.
+		/// </summary>
+		public static void EnsureFolder(string folder)
+		{
+			string folder0 = folder;
+
+			try
+			{
+				while (true)
+				{
+					if (Directory.Exists(folder)) return;
+					string parent = Path.GetDirectoryName(folder);
+					if (parent == folder)
+					{
+						throw new Exception(folder);
+					}
+					EnsureFolder(parent);
+					Directory.CreateDirectory(folder);
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"Error while processing '{folder0}'.", ex);
+			}
+		}
+
+
+		/// <summary>
+		/// Check existing folder of file. Creates folder if need.
+		/// </summary>
+		public static void EnsureFileFolder(string file)
+		{
+			string folder = Path.GetDirectoryName(file);
+			EnsureFolder(folder);
 		}
 
 		/// <summary>

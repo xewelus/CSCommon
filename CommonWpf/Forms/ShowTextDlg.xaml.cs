@@ -22,6 +22,7 @@ namespace CommonWpf.Forms
 		public static void ShowText(string caption, string text)
 		{
 			ShowTextDlg dlg = new ShowTextDlg();
+			dlg.Owner = UIHelper.TopForm;
 			dlg.Title = caption;
 			dlg.run.Text = text;
 			dlg.ShowDialog();

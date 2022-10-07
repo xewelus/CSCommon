@@ -7,7 +7,7 @@ namespace CommonWpf.Classes.UI
 {
 	public static class ExceptionHandler
 	{
-		public static void Init()
+		internal static void Init()
 		{
 			Application.Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
 			AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;

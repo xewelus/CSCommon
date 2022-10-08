@@ -11,9 +11,9 @@ namespace Common.Classes.Diagnostic
 		/// <summary>
 		/// Save text in file (usually as error) and open this file in default application.
 		/// </summary>
-		public static string SaveAndOpenLog(string text, string prefix = "error_")
+		public static string SaveAndOpenLog(string text, string prefix = "error_", string extension = ".log")
 		{
-			string path = FS.GetAppPath($"{prefix}{DateTime.Now:yyMMdd_HHmmss_fff}.log");
+			string path = FS.GetAppPath($"{prefix}{DateTime.Now:yyMMdd_HHmmss_fff}{extension}");
 
 			try
 			{

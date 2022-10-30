@@ -8,7 +8,7 @@ namespace CommonWinForms
 		public static void Catch(Exception ex)
 		{
 			OnError?.Invoke(ex);
-			UIHelper.ShowError(ex.ToString());
+			UIHelper.ShowError(ex);
 		}
 	}
 }

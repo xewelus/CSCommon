@@ -96,8 +96,19 @@ namespace CommonWpf
 				IntPtr active = GetActiveWindow();
 				Window window = Application.Current.Windows
 				                           .OfType<Window>()
-				                           .SingleOrDefault(w => new WindowInteropHelper(w).Handle == active);
-				return window ?? Application.Current.MainWindow;
+				                           .SingleOrDefault(w => w.IsLoaded && new WindowInteropHelper(w).Handle == active);
+
+				if (window != null)
+				{
+					return window;
+				}
+
+				window = Application.Current.MainWindow;
+				if (window?.IsLoaded == true)
+				{
+					return window;
+				}
+				return null;
 			}
 		}
 

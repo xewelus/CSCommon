@@ -7,6 +7,7 @@ namespace CommonWpf.Classes.UI
 {
 	public static class ExceptionHandler
 	{
+		public static Action<Exception> OnError;
 		internal static void Init()
 		{
 			Application.Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
@@ -16,6 +17,8 @@ namespace CommonWpf.Classes.UI
 
 		public static void Catch(Exception ex)
 		{
+			OnError?.Invoke(ex);
+
 			if (ex == null)
 			{
 				UIHelper.ShowError($"Empty error:\r\n{Environment.StackTrace}");

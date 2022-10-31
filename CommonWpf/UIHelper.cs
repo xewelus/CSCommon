@@ -11,6 +11,7 @@ namespace CommonWpf
 {
 	public static class UIHelper
 	{
+		public static bool InRuntime;
 		public static void ShowError(Control control, string text, string caption = "Ошибка")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButton.OK, MessageBoxImage.Error);

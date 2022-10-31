@@ -9,6 +9,7 @@ namespace CommonWpf.Classes
 		/// </summary>
 		public static void Initialize()
 		{
+			UIHelper.InRuntime = true;
 			ExceptionHandler.Init();
 		}
 	}

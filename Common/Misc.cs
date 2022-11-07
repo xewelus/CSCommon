@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
-using System.Threading;
 
 namespace Common
 {
@@ -17,6 +15,7 @@ namespace Common
 			return processes.Count > 0;
 		}
 
+		[Obsolete("Too slow")]
 		public static List<Process> GetSameProcesses()
 		{
 			List<Process> result = new List<Process>();
@@ -33,15 +32,5 @@ namespace Common
 			}
 			return result;
 		}
-
-		public static bool IsAlreadyStarted(string appGuid)
-		{
-			using (Mutex mutex = new Mutex(false, "Global\\" + appGuid))
-			{
-				return !mutex.WaitOne(0, false);
-			}
-		}
-
-		private static string appGuid = "c0a76b5a-12ab-45c5-b9d9-d693faa6e7b9";
 	}
 }

@@ -76,6 +76,7 @@ namespace CommonWpf
 
 		public static Window GetCurrentForm(this Control control)
 		{
+			if (control == null) return null;
 			return Window.GetWindow(control ?? TopForm);
 		}
 
@@ -86,7 +87,12 @@ namespace CommonWpf
 			MessageBoxButton buttons = MessageBoxButton.OK,
 			MessageBoxImage icon = MessageBoxImage.Information)
 		{
-			return MessageBox.Show(GetCurrentForm(control), text, caption, buttons, icon);
+			Window window = GetCurrentForm(control);
+			if (window == null)
+			{
+				return MessageBox.Show(text, caption, buttons, icon);
+			}
+			return MessageBox.Show(window, text, caption, buttons, icon);
 		}
 
 		public static Window TopForm

@@ -5,6 +5,7 @@
 		<RootNamespace>Common</RootNamespace>
 		<AssemblyName>Common</AssemblyName>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<DebugType>none</DebugType>

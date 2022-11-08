@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
-using CommonWpf;
 
-namespace CommonWinForms.Extensions
+namespace CommonWpf.Extensions
 {
 	public static class ControlExtension
 	{
@@ -18,7 +17,6 @@ namespace CommonWinForms.Extensions
 			}
 		}
 
-		// ReSharper disable once UnusedParameter.Global
 		public static bool InRuntime(this Control control)
 		{
 			return UIHelper.InRuntime;

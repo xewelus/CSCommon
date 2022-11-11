@@ -8,9 +8,19 @@ namespace Common.Extensions
 	public static class DirectoryInfoExtension
 	{
 		/// <summary>
-		/// Копирование папки.
+		/// Copy folder.
 		/// </summary>
-		public static void CopyTo(this DirectoryInfo srcDir, string destDirPath, bool innerCopy = false, bool clearDest = false)
+		/// <param name="srcDir">Source path.</param>
+		/// <param name="destDirPath">Destination path.</param>
+		/// <param name="innerCopy">???</param>
+		/// <param name="clearDest">True, if need override destination folder.</param>
+		/// <param name="exceptDirs">List of ignorable folder names.</param>
+		public static void CopyTo(
+			this DirectoryInfo srcDir,
+			string destDirPath,
+			bool innerCopy = false, 
+			bool clearDest = false,
+			string[] exceptDirs = null)
 		{
 			if (clearDest)
 			{
@@ -29,12 +39,17 @@ namespace Common.Extensions
 
 			foreach (DirectoryInfo dir in srcDir.GetDirectories())
 			{
+				if (exceptDirs != null && exceptDirs.Contains(dir.Name))
+				{
+					continue;
+				}
+
 				string path = Path.Combine(destDirPath, dir.Name);
 				if (!Directory.Exists(path))
 				{
 					Directory.CreateDirectory(path);
 				}
-				CopyTo(dir, path);
+				CopyTo(dir, path, exceptDirs: exceptDirs);
 			}
 		}
 

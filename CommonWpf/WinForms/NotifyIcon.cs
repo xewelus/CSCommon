@@ -4,12 +4,11 @@ using System.Drawing;
 using System.Windows.Input;
 using System.Windows.Forms;
 using CommonWpf.Classes.UI;
-using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 
 namespace CommonWpf.WinForms
 {
-	public class NotifyIcon
+	public class NotifyIcon : IDisposable
 	{
 		public NotifyIcon()
 		{

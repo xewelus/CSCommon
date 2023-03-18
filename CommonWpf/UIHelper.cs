@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
+using System.Windows.Threading;
 using Common.Extensions;
 using CommonWpf.Forms;
 
@@ -41,6 +42,13 @@ namespace CommonWpf
 		{
 			try
 			{
+				Dispatcher dispatcher = Dispatcher.CurrentDispatcher;
+				if (!dispatcher.CheckAccess())
+				{
+					dispatcher.Invoke(() => ShowError(exception, caption));
+					return;
+				}
+
 				string text = exception.ToNiceString();
 				ShowTextDlg.ShowText(caption, text);
 			}

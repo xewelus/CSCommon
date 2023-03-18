@@ -68,7 +68,10 @@ namespace Common.Extensions
 				else
 				{
 					File.SetAttributes(file.FullName, FileAttributes.Normal);
-					file.SetAccessControl(new FileSecurity());
+					if (OperatingSystem.IsWindows())
+					{
+						file.SetAccessControl(new FileSecurity());
+					}
 					file.Delete();
 				}
 			}

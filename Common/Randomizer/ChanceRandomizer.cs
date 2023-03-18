@@ -4,8 +4,8 @@ namespace Common.Randomizer
 {
 	public class ChanceRandomizer<T>
 	{
-		public List<ChanceRecord<T>> Records = new List<ChanceRecord<T>>();
-		public int Total;
+		public readonly List<ChanceRecord<T>> Records = new List<ChanceRecord<T>>();
+		public int Total { get; private set; }
 
 		public void Add(int chance, T value)
 		{
@@ -29,12 +29,12 @@ namespace Common.Randomizer
 			return this.Records[this.Records.Count - 1].Value;
 		}
 
-		public class ChanceRecord<T>
+		public class ChanceRecord<TValue>
 		{
-			public int Chance;
-			public T Value;
+			public readonly int Chance;
+			public readonly TValue Value;
 
-			public ChanceRecord(int chance, T value)
+			public ChanceRecord(int chance, TValue value)
 			{
 				this.Chance = chance;
 				this.Value = value;

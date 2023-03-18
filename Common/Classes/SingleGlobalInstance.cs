@@ -18,11 +18,14 @@ namespace Common.Classes
 			string mutexId = GetMutexId();
 			this.mutex = new Mutex(false, mutexId);
 
-			SecurityIdentifier securityIdentifier = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
-			MutexAccessRule allowEveryoneRule = new MutexAccessRule(securityIdentifier, MutexRights.FullControl, AccessControlType.Allow);
-			MutexSecurity securitySettings = new MutexSecurity();
-			securitySettings.AddAccessRule(allowEveryoneRule);
-			this.mutex.SetAccessControl(securitySettings);
+			if (OperatingSystem.IsWindows())
+			{
+				SecurityIdentifier securityIdentifier = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+				MutexAccessRule allowEveryoneRule = new MutexAccessRule(securityIdentifier, MutexRights.FullControl, AccessControlType.Allow);
+				MutexSecurity securitySettings = new MutexSecurity();
+				securitySettings.AddAccessRule(allowEveryoneRule);
+				this.mutex.SetAccessControl(securitySettings);
+			}
 
 			try
 			{
@@ -51,8 +54,8 @@ namespace Common.Classes
 		{
 			Assembly assembly = Assembly.GetExecutingAssembly();
 			object[] customAttributes = assembly.GetCustomAttributes(typeof(GuidAttribute), false);
-			GuidAttribute guidAttribute = (GuidAttribute)customAttributes.GetValue(0);
-			string mutexId = string.Format("Global\\{{{0}}}", guidAttribute.Value);
+			GuidAttribute guidAttribute = (GuidAttribute)customAttributes.GetValue(0) ?? throw new NullReferenceException(nameof(GuidAttribute));
+			string mutexId = $"Global\\{{{guidAttribute.Value}}}";
 			return mutexId;
 		}
 

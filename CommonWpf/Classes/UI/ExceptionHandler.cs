@@ -8,6 +8,10 @@ namespace CommonWpf.Classes.UI
 	public static class ExceptionHandler
 	{
 		public static Action<Exception> OnError;
+
+		/// <summary>
+		/// Need use <see cref="AppInitializer.Initialize"/>.
+		/// </summary>
 		internal static void Init()
 		{
 			Application.Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;

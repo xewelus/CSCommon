@@ -202,6 +202,7 @@ namespace Common
 		public static void OpenInDefaultApp(string path)
 		{
 			ProcessStartInfo startInfo = new ProcessStartInfo($"\"{path}\"");
+			startInfo.UseShellExecute = true;
 			startInfo.Verb = "open";
 			Process.Start(startInfo);
 		}

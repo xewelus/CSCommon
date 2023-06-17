@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using CommonWpf.Classes.UI;
@@ -15,7 +16,6 @@ namespace CommonWpf.Controls
 		public FolderBox()
 		{
 			this.InitializeComponent();
-			this.DataContext = this;
 		}
 
 		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -54,6 +54,31 @@ namespace CommonWpf.Controls
 			}
 		}
 
+		public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent(
+			"TextChanged",
+			RoutingStrategy.Bubble,
+			typeof(RoutedEventHandler),
+			typeof(FolderBox)
+		);
+
+		public event RoutedEventHandler TextChanged
+		{
+			add
+			{
+				this.AddHandler(TextChangedEvent, value);
+			}
+			remove
+			{
+				this.RemoveHandler(TextChangedEvent, value);
+			}
+		}
+
+		protected virtual void OnTextChanged()
+		{
+			RoutedEventArgs args = new RoutedEventArgs(TextChangedEvent);
+			this.RaiseEvent(args);
+		}
+
 		private void Button_OnClick(object sender, RoutedEventArgs e)
 		{
 			try
@@ -66,6 +91,18 @@ namespace CommonWpf.Controls
 						this.Text = dlg.SelectedPath;
 					}
 				}
+			}
+			catch (Exception ex)
+			{
+				ExceptionHandler.Catch(ex);
+			}
+		}
+
+		private void FolderTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+		{
+			try
+			{
+				this.OnTextChanged();
 			}
 			catch (Exception ex)
 			{

@@ -34,6 +34,6 @@
 				</Image.Source>
 			</Image>
 		</Button>
-		<TextBox Text="{Binding Text}"/>
+		<TextBox Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:FolderBox}}, UpdateSourceTrigger=PropertyChanged}" TextChanged="FolderTextBox_OnTextChanged" />
 	</DockPanel>
 </UserControl>

@@ -1,13 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
+using DarkModeForms;
 
 namespace CommonWinForms.Forms
 {
 	public partial class ShowTextDlg : Form
 	{
+		private readonly DarkModeCS darkMode;
 		public ShowTextDlg()
 		{
 			this.InitializeComponent();
+
+			if (UIHelper.IsDarkMode)
+			{
+				this.darkMode = new DarkModeCS(this)
+				{
+					ColorMode = DarkModeCS.DisplayMode.SystemDefault
+				};
+			}
 		}
 
 		public static void ShowText(string caption, string text)

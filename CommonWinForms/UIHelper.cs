@@ -10,6 +10,7 @@ namespace CommonWinForms
 	{
 		public static Form MainForm;
 		public static bool InRuntime;
+		public static bool IsDarkMode;
 
 		public static void ShowError(Control control, string text, string caption = "Ошибка")
 		{

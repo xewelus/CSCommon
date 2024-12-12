@@ -12,32 +12,32 @@ namespace CommonWinForms
 		public static bool InRuntime;
 		public static bool IsDarkMode;
 
-		public static void ShowError(Control control, string text, string caption = "Ошибка")
+		public static void ShowError(Control control, string text, string caption = "Error")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-		public static void ShowWarning(Control control, string text, string caption = "Внимание")
+		public static void ShowWarning(Control control, string text, string caption = "Warning")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
-		public static void ShowMessage(Control control, string text, string caption = "Внимание")
+		public static void ShowMessage(Control control, string text, string caption = "Information")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption);
 		}
 
-		public static bool AskYesNo(Control control, string text, string caption = "Внимание", MessageBoxIcon icon = MessageBoxIcon.Question)
+		public static bool AskYesNo(Control control, string text, string caption = "Question", MessageBoxIcon icon = MessageBoxIcon.Question)
 		{
 			return ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButtons.YesNo, icon) == DialogResult.Yes;
 		}
 
-		public static void ShowError(string text, string caption = "Ошибка")
+		public static void ShowError(string text, string caption = "Error")
 		{
 			ShowError(null, text, caption);
 		}
 
-		public static void ShowError(Exception exception, string caption = "Ошибка")
+		public static void ShowError(Exception exception, string caption = "Error")
 		{
 			try
 			{
@@ -50,24 +50,24 @@ namespace CommonWinForms
 			}
 		}
 
-		public static void ShowWarning(string text, string caption = "Внимание")
+		public static void ShowWarning(string text, string caption = "Warning")
 		{
 			ShowWarning(null, text, caption);
 		}
 
-		public static void ShowMessage(string text, string caption = "Внимание")
+		public static void ShowMessage(string text, string caption = "Information")
 		{
 			ShowMessage(null, text, caption);
 		}
 
-		public static bool AskYesNo(string text, string caption = "Внимание", MessageBoxIcon icon = MessageBoxIcon.Question)
+		public static bool AskYesNo(string text, string caption = "Question", MessageBoxIcon icon = MessageBoxIcon.Question)
 		{
 			return AskYesNo(null, text, caption, icon);
 		}
 
 		public static DialogResult ShowMessageBox(
 			string text,
-			string caption = "Внимание",
+			string caption = "Information",
 			MessageBoxButtons buttons = MessageBoxButtons.OK,
 			MessageBoxIcon icon = MessageBoxIcon.Information)
 		{
@@ -93,7 +93,7 @@ namespace CommonWinForms
 		public static DialogResult ShowMessageBox(
 			this Control control,
 			string text,
-			string caption = "Внимание",
+			string caption = "Information",
 			MessageBoxButtons buttons = MessageBoxButtons.OK,
 			MessageBoxIcon icon = MessageBoxIcon.Information)
 		{

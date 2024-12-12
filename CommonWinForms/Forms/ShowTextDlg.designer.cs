@@ -74,7 +74,7 @@
 			this.cbWordWrap.Name = "cbWordWrap";
 			this.cbWordWrap.Size = new System.Drawing.Size(22, 22);
 			this.cbWordWrap.TabIndex = 37;
-			this.toolTip.SetToolTip(this.cbWordWrap, "Перенос строк");
+			this.toolTip.SetToolTip(this.cbWordWrap, "Word wrap");
 			this.cbWordWrap.UseVisualStyleBackColor = true;
 			this.cbWordWrap.CheckedChanged += new System.EventHandler(this.cbWordWrap_CheckedChanged);
 			// 
@@ -88,7 +88,7 @@
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(132, 25);
 			this.btnCancel.TabIndex = 34;
-			this.btnCancel.Text = "Закрыть";
+			this.btnCancel.Text = "Close";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// btnCopy
@@ -100,7 +100,7 @@
 			this.btnCopy.Name = "btnCopy";
 			this.btnCopy.Size = new System.Drawing.Size(132, 25);
 			this.btnCopy.TabIndex = 36;
-			this.btnCopy.Text = "  Скопировать";
+			this.btnCopy.Text = "  Copy";
 			this.btnCopy.UseVisualStyleBackColor = true;
 			this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
 			// 

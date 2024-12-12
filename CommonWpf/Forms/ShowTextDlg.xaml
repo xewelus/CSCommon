@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CommonWpf.Forms"
         mc:Ignorable="d"
-        Title="Ошибка" Height="800" Width="1200" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="Error" Height="800" Width="1200" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
 	<Grid>
 		<RichTextBox x:Name="textBox" Margin="10,10,10,40" FontFamily="Courier New" FontSize="12">
 			<FlowDocument>
@@ -14,6 +14,6 @@
 				</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
-		<Button x:Name="btnClose" Content="Закрыть" Margin="0,0,10,10" HorizontalAlignment="Right" Width="120" Height="22" VerticalAlignment="Bottom" IsCancel="True" IsDefault="True"/>
+		<Button x:Name="btnClose" Content="Close" Margin="0,0,10,10" HorizontalAlignment="Right" Width="120" Height="22" VerticalAlignment="Bottom" IsCancel="True" IsDefault="True"/>
 	</Grid>
 </Window>

@@ -13,32 +13,32 @@ namespace CommonWpf
 	public static class UIHelper
 	{
 		public static bool InRuntime;
-		public static void ShowError(Control control, string text, string caption = "Ошибка")
+		public static void ShowError(Control control, string text, string caption = "Error")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButton.OK, MessageBoxImage.Error);
 		}
 
-		public static void ShowWarning(Control control, string text, string caption = "Внимание")
+		public static void ShowWarning(Control control, string text, string caption = "Warning")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButton.OK, MessageBoxImage.Warning);
 		}
 
-		public static void ShowMessage(Control control, string text, string caption = "Внимание")
+		public static void ShowMessage(Control control, string text, string caption = "Information")
 		{
 			ShowMessageBox(GetCurrentForm(control), text, caption);
 		}
 
-		public static bool AskYesNo(Control control, string text, string caption = "Внимание", MessageBoxImage icon = MessageBoxImage.Question)
+		public static bool AskYesNo(Control control, string text, string caption = "Question", MessageBoxImage icon = MessageBoxImage.Question)
 		{
 			return ShowMessageBox(GetCurrentForm(control), text, caption, MessageBoxButton.YesNo, icon) == MessageBoxResult.Yes;
 		}
 
-		public static void ShowError(string text, string caption = "Ошибка")
+		public static void ShowError(string text, string caption = "Error")
 		{
 			ShowError((Control)null, text, caption);
 		}
 
-		public static void ShowError(Exception exception, string caption = "Ошибка")
+		public static void ShowError(Exception exception, string caption = "Error")
 		{
 			try
 			{
@@ -58,24 +58,24 @@ namespace CommonWpf
 			}
 		}
 
-		public static void ShowWarning(string text, string caption = "Внимание")
+		public static void ShowWarning(string text, string caption = "Warning")
 		{
 			ShowWarning(null, text, caption);
 		}
 
-		public static void ShowMessage(string text, string caption = "Внимание")
+		public static void ShowMessage(string text, string caption = "Information")
 		{
 			ShowMessage(null, text, caption);
 		}
 
-		public static bool AskYesNo(string text, string caption = "Внимание", MessageBoxImage icon = MessageBoxImage.Question)
+		public static bool AskYesNo(string text, string caption = "Question", MessageBoxImage icon = MessageBoxImage.Question)
 		{
 			return AskYesNo(null, text, caption, icon);
 		}
 
 		public static MessageBoxResult ShowMessageBox(
 			string text,
-			string caption = "Внимание",
+			string caption = "Information",
 			MessageBoxButton buttons = MessageBoxButton.OK,
 			MessageBoxImage icon = MessageBoxImage.Information)
 		{
@@ -91,7 +91,7 @@ namespace CommonWpf
 		public static MessageBoxResult ShowMessageBox(
 			this Control control,
 			string text,
-			string caption = "Внимание",
+			string caption = "Information",
 			MessageBoxButton buttons = MessageBoxButton.OK,
 			MessageBoxImage icon = MessageBoxImage.Information)
 		{

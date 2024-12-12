@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CommonWinForms</RootNamespace>
     <AssemblyName>CommonWinForms</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

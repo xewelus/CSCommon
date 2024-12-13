@@ -46,7 +46,7 @@ namespace CommonWinForms
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show(e.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(GetCurrentForm(null), e.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
